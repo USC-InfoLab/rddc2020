@@ -351,6 +351,10 @@ def train(hyp, opt, device, tb_writer=None):
 
                 # Save last, best and delete
                 torch.save(ckpt, last)
+                if epoch % 5 == 0:
+                    wt_name = os.path.join(wdir, 'last_{}.pt'.format(epoch))
+                    print("saving..", wt_name)
+                    torch.save(ckpt, wt_name)
                 if best_fitness == fi:
                     torch.save(ckpt, best)
                 del ckpt

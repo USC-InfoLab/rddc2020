@@ -18,6 +18,10 @@ from utils.general import (
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 
+save_csv = True
+csv_f = open("results_csv.txt","w")
+
+
 def detect(save_img=False):
     out, source, weights, view_img, save_txt, imgsz = \
         opt.output, opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size
@@ -83,6 +87,8 @@ def detect(save_img=False):
 
         # Process detections
         for i, det in enumerate(pred):  # detections per image
+            if save_csv:
+                csv_f.write(os.path.basename(path)+",")
             if webcam:  # batch_size >= 1
                 p, s, im0 = path[i], '%g: ' % i, im0s[i].copy()
             else:
@@ -111,6 +117,10 @@ def detect(save_img=False):
                     if save_img or view_img:  # Add bbox to image
                         label = '%s %.2f' % (names[int(cls)], conf)
                         plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
+
+                    if save_csv:
+                        csv_f.write("{} {} {} {} {} ".format(str(int(cls.detach().cpu().numpy())+1), str(int(xyxy[0].detach().cpu().numpy())), str(int(xyxy[1].detach().cpu().numpy())), str(int(xyxy[2].detach().cpu().numpy())), str(int(xyxy[3].detach().cpu().numpy()))))
+            csv_f.write("\n")
 
             # Print time (inference + NMS)
             print('%sDone. (%.3fs)' % (s, t2 - t1))
@@ -171,3 +181,4 @@ if __name__ == '__main__':
                 strip_optimizer(opt.weights)
         else:
             detect()
+    csv_f.close()
