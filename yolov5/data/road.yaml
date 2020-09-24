@@ -1,0 +1,4 @@
+train: datasets/road2020/train.txt
+val: dataset/road2020/val.txt
+nc: 4
+names: ['D00','D10','D20','D40']
