@@ -17,7 +17,7 @@ Sample predictions:
 - [Prerequisites](#prerequisites)
 - [Quick start](#quick-start)
 - [RDCC Dataset Setup for YOLOv5](#RDCC-Dataset-Setup)
-- [YOLOv5 Model zoo](#YOLOv5-Model-zoo)
+- [IMSC YOLOv5 Model zoo](#IMSC-YOLOv5-Model-zoo)
 - [Detection / Submission](#Detection)
 - [Performance on RDDC test datasets](#Performance-on-RDDC-test-datasets)
 - [Training](#Training)
@@ -80,25 +80,26 @@ OR
     - Use `python3 scripts/xml2Yolo.py --help` for command line option details
 
 
-## YOLOv5 Model zoo
+## IMSC YOLOv5 Model zoo
 
 1. Go to `yolov5` directory
     ```Shell
     cd yolov5
     ```
 
-2. download YOLOv5v5 model zoo:
+2. download YOLOv5 model zoo:
     ```Shell
     bash scripts/download_IMSC_grddc2020_weights.sh
     ```
    
 ## Detection / Submission
+1. Download weights as mentioned in [IMSC YOLOv5 Model zoo](#IMSC-YOLOv5-Model-zoo)
 
-1. Go to `yolov5` directory
+2. Go to `yolov5` directory
     ```Shell
     cd yolov5
     ```
-2. Execute one of the follwoing commands to generate `results.csv`(competition format) and predicated images under `inference/output/`:
+3. Execute one of the follwoing commands to generate `results.csv`(competition format) and predicated images under `inference/output/`:
 ```Shell
 # inference using best ensemble model for test1 dataset
 python3 detect.py --weights weights/last_95_448_32_aug2.pt weights/last_95_640_16.pt weights/last_120_640_32_aug2.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
