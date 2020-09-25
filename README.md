@@ -19,6 +19,7 @@ Sample predictions:
 - [RDCC Dataset Setup for YOLOv5](#RDCC-Dataset-Setup)
 - [YOLOv5 Model zoo](#YOLOv5-Model-zoo)
 - [Detection / Submission](#Detection)
+- [Performance on RDDC test datasets](#Performance-on-RDDC-test-datasets)
 - [Training](#Training)
 - [Citation](#Citation)
 
@@ -63,14 +64,8 @@ You need to install:
     ```
 
 2. execute `download_road2020.sh` to downlaod train and test dataset
-    - Linux (wget command)
     ```Shell
-    bash scripts/download_road2020_wget.sh
-    
-    ```
-    - Mac OS (curl command)
-    ```Shell
-    bash scripts/download_road2020_curl.sh
+    bash scripts/download_road2020.sh
     ```
 
 3. **Detection:** strcutre test datasets for inference using yolov5
@@ -94,7 +89,7 @@ You need to install:
 
 2. download YOLOv5v5 model zoo:
     ```Shell
-    bash scripts/download_grddc2020_weights_wget.sh
+    bash scripts/download_grddc2020_weights.sh
     ```
    
 ## Detection / Submission
