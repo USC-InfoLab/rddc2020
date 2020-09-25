@@ -42,28 +42,28 @@ def getFileList3(filePath):
         xmlFiles = f.readlines()
         for i in range(len(xmlFiles)):
             temp = xmlFiles[i].strip().rsplit('.',1)[0]
-            xmlFiles[i] = os.path.abspath(temp.replace("JPEGImages","Annotations")+".xml")
-            labels_path = os.path.dirname(xmlFiles[i]).replace("Annotations","labels")
-            labels_path=labels_path[:-5]
-            print(labels_path)
+            xmlFiles[i] = os.path.abspath(temp.replace("images","annotations/xmls")+".xml")
+            labels_path = os.path.dirname(xmlFiles[i]).replace("annotations/xmls","labels")
+            if not os.path.exists(labels_path):
+                os.mkdir(labels_path)
+            assert(os.path.exists(xmlFiles[i]))
+
             
     
     return xmlFiles
 
 
 def main():
-    class_file=input('Enter the path to txt file containing the name of damages: ')#'home/adeepak/damage_classes.txt'
-    input_file=input('Enter the path to train image paths: ')#'home/adeepak/train_annotations.txt'
 
-    #parser = argparse.ArgumentParser(description='run phase2.')
-    #parser.add_argument('--class_file', type=str, help='path of the file containing list of classes of detection problem. sample file at "one-phase/darknet/damage.names"',default='../one-phase/darknet/damage.names')
-    #parser.add_argument('--input_file', type=str, help='location to the list of images/xml files(absolute path). sample file at "examples/xml2Yolo_sample.txt"',default='../examples/train_rddc_sample.txt')
-    #args = parser.parse_args()
+    parser = argparse.ArgumentParser(description='run phase2.')
+    parser.add_argument('--class_file', type=str, help='path of the file containing list of classes of detection problem. sample file at "datasets/road2020/damage_classes.txt"',default='datasets/road2020/damage_classes.txt')
+    parser.add_argument('--input_file', type=str, help='location to the list of images/xml files(absolute path). sample file at "datasets/road2020/train.txt"',default='datasets/road2020/train.txt')
+    args = parser.parse_args()
 
     #assign each class of dataset to a number
     outputCtoId = {}
 
-    f = open(class_file,"r")
+    f = open(args.class_file,"r")
     lines = f.readlines()
     f.close()
     num_classes=1
@@ -71,7 +71,7 @@ def main():
         outputCtoId[lines[i].strip()] = i
 
     #read the path of the directory where XML and images are present
-    xmlFiles = getFileList3(input_file)
+    xmlFiles = getFileList3(args.input_file)
 
     print("total files:", len(xmlFiles))
     
@@ -83,22 +83,16 @@ def main():
         root = tree.getroot()
         
         i = 0
-        imageFile = filePath[:-4].replace("Annotations","JPEGImages")+"."+imageType[i]
-        #print(imageFile)
-        imagepath=imageFile[-17:]
-        #print(imageFile)
-        imageFile = imageFile[:-21].replace("xml","")
-        #print(imageFile)
-        imageFile = imageFile[:-1].replace("annotations","")
-        imageFile=imageFile+"images"
-        imageFile=imageFile+imagepath
-        #print(imageFile)
+        imageFile = filePath[:-4].replace("annotations/xmls","images")+"."+imageType[i]
+        while (not os.path.isfile(imageFile) and i<2):
+            i+=1
+            imageFile = filePath[:-4].replace("annotations/xmls","images")+"."+imageType[i]
 
         if not os.path.isfile(imageFile):
             print("File not found:",imageFile)
             continue
         
-        txtFile = imageFile.replace("JPEGImages","labels")
+        txtFile = imageFile.replace("images","labels")
         txtFile = txtFile[:-4]+".txt"
         yoloOutput = open(txtFile,"w")
         
