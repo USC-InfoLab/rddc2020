@@ -50,6 +50,13 @@ You need to install:
 
 
 ## [RDCC](https://github.com/sekilab/RoadDamageDetector#dataset-for-global-road-damage-detection-challenge-2020) Dataset Setup for YOLOv5
+
+**NOTE: Entire process (step 1-4 explained in this section) of downloading and preparing GRDDC 2020 dataset can be done by executing `yolov5/scripts/dataset_setup_for_yolov5.sh`**
+
+    ```
+    bash yolov5/scripts/dataset_setup_for_yolov5.sh
+    ```
+    
 1. Go to `yolov5` directory
     ```Shell
     cd yolov5
@@ -73,15 +80,9 @@ You need to install:
 
 4. **Training:** Generate the label files for Darknet using [yolov5/scripts/xml2Yolo.py](https://github.com/USC-InfoLab/rddc2020/tree/master/yolov5/scripts/xml2Yolo.py)
     ```Shell
-    bash scripts/xml2yolo.sh
+    python3 scripts/xml2yolo.py
     ```
     - Use `python3 scripts/xml2Yolo.py --help` for command line option details
-
-
-Entire process of downloading and preparing GRDDC 2020 dataset can be done by executing `scripts/dataset_setup_for_yolov5.sh`
-    ```Shell
-    bash scripts/dataset_setup_for_yolov5.sh
-    ```
 
 
 ## YOLOv5 Model zoo
