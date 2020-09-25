@@ -125,8 +125,8 @@ OR
 | YOLOv5x_448_32_aug2 | YOLOv5x_640_16_95 | YOLOv5x_640_16_100 | YOLOv5x_640_32     | YOLOv5x_640_16_aug2 | YOLOv5x_640_32_aug2 | test1 F1-score | test2 F1-score |
 |------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |
 |                    | :heavy_check_mark: |                    |                    |                    |                    | 0.66697383879131 |0.651389430313506                 |
-| :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: |0.674878682854973                  | 0.665632401648316                   |
-| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |0.674198239966431                 |  0.666213894130645                  |
+| :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: |**0.674878682854973**                  | 0.665632401648316                   |
+| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |0.674198239966431                 |  **0.666213894130645**                 |
 
 
 ## Training
