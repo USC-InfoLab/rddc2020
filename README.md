@@ -126,7 +126,7 @@ OR
 |------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |
 |                    | :heavy_check_mark: |                    |                    |                    |                    | 0.66697383879131 |0.651389430313506                 |
 | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: |0.674878682854973                  | 0.665632401648316                   |
-| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |                    |                    |
+| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |                    |  0.666213894130645                  |
 
 
 ## Training
