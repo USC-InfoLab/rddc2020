@@ -100,25 +100,25 @@ OR
     cd yolov5
     ```
 3. Execute one of the follwoing commands to generate `results.csv`(competition format) and predicated images under `inference/output/`:
-```Shell
-# inference using best ensemble model for test1 dataset
-python3 detect.py --weights weights/last_95_448_32_aug2.pt weights/last_95_640_16.pt weights/last_120_640_32_aug2.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
-```
+    ```Shell
+    # inference using best ensemble model for test1 dataset
+    python3 detect.py --weights weights/last_95_448_32_aug2.pt weights/last_95_640_16.pt weights/last_120_640_32_aug2.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
+    ```
 
-```Shell
-# inference using best ensemble model for test2 dataset
-python3 detect.py --weights weights/last_95_448_32_aug2.pt  weights/last_95_640_16.pt  weights/last_120_640_32_aug2.pt weights/last_100_100_640_16.pt --img 640 --source datasets/road2020/test2/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
-```
+    ```Shell
+    # inference using best ensemble model for test2 dataset
+    python3 detect.py --weights weights/last_95_448_32_aug2.pt  weights/last_95_640_16.pt  weights/last_120_640_32_aug2.pt weights/last_100_100_640_16.pt --img 640 --source datasets/road2020/test2/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
+    ```
 
-```Shell
-# inference using best non-ensemble model for test1 dataset
-python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.20 --iou-thres 0.9999  --agnostic-nms --augment
-```
+    ```Shell
+    # inference using best non-ensemble model for test1 dataset
+    python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.20 --iou-thres 0.9999  --agnostic-nms --augment
+    ```
 
-```Shell
-# inference using best non-ensemble model for test2 dataset
-python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2020/test2/test_images/ --conf-thres 0.20 --iou-thres 0.9999  --agnostic-nms --augment
-```
+    ```Shell
+    # inference using best non-ensemble model for test2 dataset
+    python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2020/test2/test_images/ --conf-thres 0.20 --iou-thres 0.9999  --agnostic-nms --augment
+    ```
 
 ## Performance on RDDC test datasets
 
