@@ -102,7 +102,7 @@ Entire process of downloading and preparing GRDDC 2020 dataset can be done by ex
     ```Shell
     cd yolov5
     ```
-2. Execute follwoing command to generate `results.csv` and predicated images under `inference/images`:
+2. Execute follwoing command to generate `results.csv`(competition format) and predicated images under `inference/output/`:
 ```Shell
 # inference using best ensemble model for test1 dataset
 python3 detect.py --weights weights/last_95_448_32_aug2.pt weights/last_95_640_16.pt weights/last_120_640_32_aug2.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
