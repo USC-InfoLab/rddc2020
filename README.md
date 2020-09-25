@@ -10,7 +10,7 @@ The best model achieved mean F1-score of 0.664291771220962 on test1 and 0.650065
 
 Sample predictions:
 
-![](examples/sample1.jpg) ![](examples/sample2.jpg) ![](examples/sample3.jpg) ![](examples/sample4.jpg)
+![](examples/sample1.jpg | width=10) ![](examples/sample2.jpg | width=10) ![](examples/sample3.jpg | width=10) ![](examples/sample4.jpg | width=10)
 
 ## Table of contents
 
