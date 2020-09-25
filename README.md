@@ -27,11 +27,10 @@ Sample predictions:
 
 You need to install:
 - [Python3 >= 3.6](https://www.python.org/downloads/)
-- Use `yolov5/requirements.txt` to install required python dependencies
+- Use `requirements.txt` to install required python dependencies
 
     ```Shell
-    # Python 3 is needed
-    cd yolov5
+    # Python >= 3.6 is needed
     pip3 install -r requirements.txt
     ```
    
@@ -57,6 +56,8 @@ You need to install:
 ```Shell
     bash yolov5/scripts/dataset_setup_for_yolov5.sh
 ```
+
+OR
     
 1. Go to `yolov5` directory
     ```Shell
@@ -89,7 +90,7 @@ You need to install:
 
 2. download YOLOv5v5 model zoo:
     ```Shell
-    bash scripts/download_grddc2020_weights.sh
+    bash scripts/download_IMSC_grddc2020_weights.sh
     ```
    
 ## Detection / Submission
