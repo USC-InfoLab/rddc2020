@@ -93,10 +93,10 @@ Entire process of downloading and preparing GRDDC 2020 dataset can be done by ex
 
 2. download YOLOv5v5 model zoo:
     ```Shell
-    bash scripts/download_grddc2020_weights.sh
+    bash scripts/download_grddc2020_weights_wget.sh
     ```
    
-## [Detection / Submission]
+## Detection / Submission
 
 1. Go to `yolov5` directory
     ```Shell
@@ -123,11 +123,16 @@ python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2
 python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2020/test2/test_images/ --conf-thres 0.20 --iou-thres 0.9999  --agnostic-nms --augment
 ```
 
-## [Performance on RDDC test datasets]
+## Performance on RDDC test datasets
 
-| YOLOv5x_448_32_aug2 | YOLOv5x_640_16 | YOLOv5x_640_32 | YOLOv5x_640_16_aug2 | YOLOv5x_640_32_aug2 | test1 F1-score | test2 F1-score |
-|---------- |------ |------ |------ | -------- | ------| ------ |
-| :heavy_check_mark:    | :heavy_check_mark:    ||| :heavy_check_mark:    |||
+| YOLOv5x_448_32_aug2 | YOLOv5x_640_16_95 | YOLOv5x_640_16_100 | YOLOv5x_640_32     | YOLOv5x_640_16_aug2 | YOLOv5x_640_32_aug2 | test1 F1-score | test2 F1-score |
+|------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |
+|                    | :heavy_check_mark: |                    |                    |                    |                    |                    |                    |
+| :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: |                    |                    |
+| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |                    |                    |
+
+## Training
+
 
 
 
