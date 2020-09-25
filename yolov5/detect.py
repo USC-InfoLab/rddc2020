@@ -19,7 +19,7 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 
 save_csv = True
-csv_f = open("results_csv.txt","w")
+csv_f = open("results.csv","w")
 
 
 def detect(save_img=False):
