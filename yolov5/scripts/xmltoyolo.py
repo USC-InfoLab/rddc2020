@@ -84,10 +84,16 @@ def main():
         
         i = 0
         imageFile = filePath[:-4].replace("Annotations","JPEGImages")+"."+imageType[i]
+        #print(imageFile)
         imagepath=imageFile[-17:]
+        #print(imageFile)
         imageFile = imageFile[:-21].replace("xml","")
+        #print(imageFile)
+        imageFile = imageFile[:-1].replace("annotations","")
+        imageFile=imageFile+"images"
         imageFile=imageFile+imagepath
-        
+        #print(imageFile)
+
         if not os.path.isfile(imageFile):
             print("File not found:",imageFile)
             continue
