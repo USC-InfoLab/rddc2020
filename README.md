@@ -127,7 +127,18 @@ python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2
 | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: |                    |                    |
 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |                    |                    |
 
+
 ## Training
+1. download pre-trained weights from yolov5 repo
+    ```Shell
+    bash weights/download_weights.sh
+    ```
+    
+2. run following command
+    ```Shell
+    python3 train.py --data data/road.yaml --cfg models/yolov5x.yaml --weights weight/yolov5x.pt --batch-size 64
+    ```
+visit [yolov5](https://github.com/ultralytics/yolov5) official source code for more training and inference time arguments
 
 
 
