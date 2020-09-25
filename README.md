@@ -73,7 +73,7 @@ OR
     bash scripts/prepare_test.sh
     ```
 
-4. **Training:** Generate the label files for Darknet using [yolov5/scripts/xml2Yolo.py](https://github.com/USC-InfoLab/rddc2020/tree/master/yolov5/scripts/xml2Yolo.py)
+4. **Training:** Generate the label files for yolov5 using [scripts/xml2Yolo.py](https://github.com/USC-InfoLab/rddc2020/tree/master/yolov5/scripts/xml2Yolo.py)
     ```Shell
     python3 scripts/xml2yolo.py
     ```
@@ -98,7 +98,7 @@ OR
     ```Shell
     cd yolov5
     ```
-2. Execute follwoing command to generate `results.csv`(competition format) and predicated images under `inference/output/`:
+2. Execute one of the follwoing commands to generate `results.csv`(competition format) and predicated images under `inference/output/`:
 ```Shell
 # inference using best ensemble model for test1 dataset
 python3 detect.py --weights weights/last_95_448_32_aug2.pt weights/last_95_640_16.pt weights/last_120_640_32_aug2.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
