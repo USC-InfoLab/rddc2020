@@ -122,7 +122,7 @@ python3 detect.py --weights weights/last_95.pt --img 640 --source datasets/road2
 ## Performance on RDDC test datasets
 
 | YOLOv5x_448_32_aug2 | YOLOv5x_640_16_95 | YOLOv5x_640_16_100 | YOLOv5x_640_32     | YOLOv5x_640_16_aug2 | YOLOv5x_640_32_aug2 | test1 F1-score | test2 F1-score |
-|------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |
+|------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |
 |                    | :heavy_check_mark: |                    |                    |                    |                    |                    |                    |
 | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: |                    |                    |
 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |                    |                    |
