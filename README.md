@@ -53,9 +53,9 @@ You need to install:
 
 **NOTE: Entire process (step 1-4 explained in this section) of downloading and preparing GRDDC 2020 dataset can be done by executing `yolov5/scripts/dataset_setup_for_yolov5.sh`**
 
-    ```
+```Shell
     bash yolov5/scripts/dataset_setup_for_yolov5.sh
-    ```
+```
     
 1. Go to `yolov5` directory
     ```Shell
