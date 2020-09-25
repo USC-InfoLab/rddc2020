@@ -40,7 +40,7 @@ You need to install:
 1. Clone the road-damage-detection repo into $RDD: 
 
     ```Shell
-    git clone https://github.com/dweeptrivedi/road-damage-detection.git
+    git clone https://github.com/USC-InfoLab/rddc2020.git
     ```
 
 2. Install python packages:
