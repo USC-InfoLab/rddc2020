@@ -100,18 +100,18 @@ OR
 3. Execute one of the follwoing commands to generate `results_*.csv`(competition format):
     ```Shell
     # inference using model trained with yolov5 default anchor boxes
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt --img 640 --source datasets/RDD2022_all_countries/all_test_images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/all_test_images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     
     # inference using model trained with yolov5 anchor boxes
-    python3 detect.py --weights weights/IMSC/crddc_anchor_epoch80.pt --img 640 --source datasets/RDD2022_all_countries/all_test_images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/crddc_anchor_epoch80.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/all_test_images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     
     # inference using best country specific ensemble models 
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Japan_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/Japan/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/India_epoch120.pt --img 640 --source datasets/RDD2022_all_countries/India/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Czech_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/Czech/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/United_epoch90.pt --img 640 --source datasets/RDD2022_all_countries/United_States/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Norway_epoch100.pt --img 640 --source datasets/RDD2022_all_countries/Norway/test/images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/China_epoch120.pt --img 640 --source datasets/RDD2022_all_countries/China_MotorBike/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Japan_epoch70.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Japan/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/India_epoch120.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/India/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Czech_epoch70.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Czech/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/United_epoch90.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/United_States/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Norway_epoch100.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Norway/test/images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/China_epoch120.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/China_MotorBike/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     cat 
     ```
 
