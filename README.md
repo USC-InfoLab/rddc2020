@@ -1,20 +1,12 @@
-# rddc2020
-road damage detection challenge 2020
+# crddc2022
+Crowdsensing-based Road Damage Detection Challenge 2022
 
 
-# road damage detection challange 2020 IMSC submission
+# road damage detection challange 2022 IMSC submission
 
-This repository contains source code and trained models for [Road Damage Detection and Classification Challenge](https://rdd2020.sekilab.global/overview/) that was held as part of 2020 IEEE Big Data conference.
+This repository contains source code and trained models for [Crowdsensing-based Road Damage Detection Challenge](https://crddc2022.sekilab.global/) that was held as part of 2022 IEEE Big Data conference.
 
-The best model achieved mean F1-score of 0.674878682854973 on test1 and 0.666213894130645 on test2 dataset of the competition.
-
-Sample predictions:
-
-![]() ![]() ![]() ![]()
-<img src="examples/sample1.jpg" width="220" height="250" />
-<img src="examples/sample2.jpg" width="220" height="250" />
-<img src="examples/sample3.jpg" width="220" height="250" />
-<img src="examples/sample4.jpg" width="220" height="250" />
+The best model achieved mean F1-score of 0.
 
 ## Table of contents
 
@@ -29,11 +21,11 @@ Sample predictions:
 ## Prerequisites
 
 You need to install:
-- [Python3 >= 3.6](https://www.python.org/downloads/)
+- [Python3 == 3.10](https://www.python.org/downloads/)
 - Use `requirements.txt` to install required python dependencies
 
     ```Shell
-    # Python >= 3.6 is needed
+    # Python == 3.10 is needed
     pip3 install -r requirements.txt
     ```
    
@@ -43,6 +35,8 @@ You need to install:
 
     ```Shell
     git clone https://github.com/USC-InfoLab/rddc2020.git
+    cd rddc2020
+    git checkout -b crddc2022
     ```
 
 2. Install python packages:
@@ -69,7 +63,7 @@ OR
 
 2. execute `download_road2020.sh` to downlaod train and test dataset
     ```Shell
-    bash scripts/download_road2020.sh
+    bash scripts/download_road2022.sh
     ```
 
 3. **Detection:** strcutre test datasets for inference using yolov5
@@ -79,7 +73,7 @@ OR
 
 4. **Training:** Generate the label files for yolov5 using [scripts/xml2Yolo.py](https://github.com/USC-InfoLab/rddc2020/tree/master/yolov5/scripts/xml2Yolo.py)
     ```Shell
-    python3 scripts/xml2yolo.py
+    python3 scripts/xml2yolo.py --class_file datasets/damage_classes.txt --input_file datasets/train.txt
     ```
     - Use `python3 scripts/xml2Yolo.py --help` for command line option details
 
@@ -103,46 +97,25 @@ OR
     ```Shell
     cd yolov5
     ```
-3. Execute one of the follwoing commands to generate `results.csv`(competition format) and predicated images under `inference/output/`:
+3. Execute one of the follwoing commands to generate `results_*.csv`(competition format):
     ```Shell
-    # inference using best ensemble model for test1 dataset
-    python3 detect.py --weights weights/IMSC/last_95_448_32_aug2.pt weights/IMSC/last_95_640_16.pt weights/IMSC/last_120_640_32_aug2.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
-    ```
-
-    ```Shell
-    # inference using best ensemble model for test2 dataset
-    python3 detect.py --weights weights/IMSC/last_95_448_32_aug2.pt  weights/IMSC/last_95_640_16.pt  weights/IMSC/last_120_640_32_aug2.pt weights/IMSC/last_100_100_640_16.pt --img 640 --source datasets/road2020/test2/test_images/ --conf-thres 0.22 --iou-thres 0.9999 --agnostic-nms --augment
-    ```
-
-    ```Shell
-    # inference using best non-ensemble model for test1 dataset
-    python3 detect.py --weights weights/IMSC/last_95.pt --img 640 --source datasets/road2020/test1/test_images/ --conf-thres 0.20 --iou-thres 0.9999  --agnostic-nms --augment
-    ```
-
-    ```Shell
-    # inference using best non-ensemble model for test2 dataset
-    python3 detect.py --weights weights/IMSC/last_95.pt --img 640 --source datasets/road2020/test2/test_images/ --conf-thres 0.20 --iou-thres 0.9999  --agnostic-nms --augment
-    ```
-
-## Performance on RDDC test datasets
-
-| YOLOv5x_448_32_aug2 | YOLOv5x_640_16_95 | YOLOv5x_640_16_100 | YOLOv5x_640_32     | YOLOv5x_640_16_aug2 | YOLOv5x_640_32_aug2 | test1 F1-score | test2 F1-score |
-|------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |------------------- |
-|                    | :heavy_check_mark: |                    |                    |                    |                    | 0.66697383879131 |0.651389430313506                 |
-| :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: |**0.674878682854973**                  | 0.665632401648316                   |
-| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |0.674198239966431                 |  **0.666213894130645**                 |
-
-
-## Training
-1. download pre-trained weights from yolov5 repo
-    ```Shell
-    bash weights/download_weights.sh
-    ```
+    # inference using model trained with yolov5 default anchor boxes
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt --img 640 --source datasets/RDD2022_all_countries/all_test_images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     
-2. run following command
-    ```Shell
-    python3 train.py --data data/road.yaml --cfg models/yolov5x.yaml --weights weight/yolov5x.pt --batch-size 64
+    # inference using model trained with yolov5 anchor boxes
+    python3 detect.py --weights weights/IMSC/crddc_anchor_epoch80.pt --img 640 --source datasets/RDD2022_all_countries/all_test_images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    
+    # inference using best country specific ensemble models 
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Japan_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/Japan/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/India_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/India/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Czech_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/Czech/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/United_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/United_States/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Norway_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/Norway/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/China_epoch70.pt --img 640 --source datasets/RDD2022_all_countries/China_MotorBike/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    cat 
     ```
+
+
 visit [yolov5](https://github.com/ultralytics/yolov5) official source code for more training and inference time arguments
 
 
