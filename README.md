@@ -66,7 +66,7 @@ OR
     cd yolov5
     ```
 
-2. execute `download_road2020.sh` to downlaod train and test dataset
+2. execute `download_road2022.sh` to downlaod train and test dataset
     ```Shell
     bash scripts/download_road2022.sh
     ```
