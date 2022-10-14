@@ -14,9 +14,8 @@ The best model achieved mean F1-score of 0.
 - [Quick start](#quick-start)
 - [RDCC Dataset Setup for YOLOv5](#RDCC-Dataset-Setup)
 - [IMSC YOLOv5 Model zoo](#IMSC-YOLOv5-Model-zoo)
-- [Detection / Submission](#Detection)
-- [Performance on RDDC test datasets](#Performance-on-RDDC-test-datasets)
-- [Training](#Training)
+- [Reproduce results](#Reproduce)
+- [Detection](#Detection)
 
 ## Prerequisites
 
@@ -96,19 +95,35 @@ OR
     bash scripts/download_IMSC_grddc2022_weights.sh
     ```
    
-## Detection / Submission
+## Reproduce results for CRDDC2022 Competetion
+
+Please complete all previous sections ([Prerequisites](#prerequisites), [Quick start](#quick-start), [RDCC Dataset Setup for YOLOv5](#RDCC-Dataset-Setup), [IMSC YOLOv5 Model zoo](#IMSC-YOLOv5-Model-zoo)) before starting this section.
+
+1. Go to `yolov5` directory
+    ```Shell
+    cd yolov5
+    ```
+
+2. To generate csv files required to submit results for 5 leaderboards, run following script:
+   (NOTE: This script will generate files `leaderboard_<Country Name>.csv` at the head of this repo (under `rddc2020/`).)
+  
+``` 
+bash run.sh
+```
+   
+## Detection
 1. Download weights as mentioned in [IMSC YOLOv5 Model zoo](#IMSC-YOLOv5-Model-zoo)
 
 2. Go to `yolov5` directory
     ```Shell
     cd yolov5
     ```
-3. Execute one of the follwoing commands to generate `results_*.csv`(competition format):
+3. Execute one of the follwoing commands to generate `results_*.csv`(competition format): (to generate images with drawn predictions, remove ` --nosave` from command)
     ```Shell
     # inference using model trained with yolov5 default anchor boxes
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/all_test_images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     
-    # inference using model trained with yolov5 anchor boxes
+    # inference using model trained with learnt crddc2022 dataset anchor boxes
     python3 detect.py --weights weights/IMSC/crddc_anchor_epoch80.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/all_test_images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     
     # inference using best country specific ensemble models 
@@ -117,10 +132,8 @@ OR
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Czech_epoch70.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Czech/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/United_epoch90.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/United_States/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Norway_epoch100.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Norway/test/images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/China_epoch120.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/China_MotorBike/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    cat 
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/China_epoch120.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/China_MotorBike/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave 
     ```
-
 
 visit [yolov5](https://github.com/ultralytics/yolov5) official source code for more training and inference time arguments
 
