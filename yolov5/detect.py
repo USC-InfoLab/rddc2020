@@ -269,7 +269,7 @@ if __name__ == "__main__":
         opt.csv_dict = {}
         country = opt.country
         #for country in country_list:
-        opt.csv_dict[country] = open("results/esults_{}_{}_c_{}_n_{}_an_{}_aug_{}.csv".format(country, weight_name, opt.conf_thres, opt.iou_thres, opt.agnostic_nms, opt.augment), "w")
+        opt.csv_dict[country] = open("results/results_{}_{}_c_{}_n_{}_an_{}_aug_{}.csv".format(country, weight_name, opt.conf_thres, opt.iou_thres, opt.agnostic_nms, opt.augment), "w")
 
     main(opt)
 
