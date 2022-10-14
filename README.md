@@ -22,6 +22,12 @@ The best model achieved mean F1-score of 0.
 
 You need to install:
 - [Python3 == 3.10](https://www.python.org/downloads/)
+
+    ```Shell
+    If using conda, use following command to create new conda virtual env
+    conda create -n crddc python=3.10
+    ```
+    
 - Use `requirements.txt` to install required python dependencies
 
     ```Shell
@@ -48,7 +54,7 @@ You need to install:
 
 ## [RDCC](https://github.com/sekilab/RoadDamageDetector#dataset-for-global-road-damage-detection-challenge-2020) Dataset Setup for YOLOv5
 
-**NOTE: Entire process (step 1-4 explained in this section) of downloading and preparing GRDDC 2020 dataset can be done by executing `yolov5/scripts/dataset_setup_for_yolov5.sh`**
+**NOTE: Entire process (step 1-4 explained in this section) of downloading and preparing GRDDC 2022 dataset can be done by executing `yolov5/scripts/dataset_setup_for_yolov5.sh`**
 
 ```Shell
     bash yolov5/scripts/dataset_setup_for_yolov5.sh
@@ -107,7 +113,7 @@ OR
     
     # inference using best country specific ensemble models 
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Japan_epoch70.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Japan/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
-    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/India_epoch120.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/India/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
+    python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/India_epoch110.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/India/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Czech_epoch70.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Czech/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/United_epoch90.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/United_States/test/images/ --conf-thres 0.3 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Norway_epoch100.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Norway/test/images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
