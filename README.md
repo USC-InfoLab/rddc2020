@@ -93,7 +93,7 @@ OR
 
 2. download YOLOv5 model zoo:
     ```Shell
-    bash scripts/download_IMSC_grddc2020_weights.sh
+    bash scripts/download_IMSC_grddc2022_weights.sh
     ```
    
 ## Detection / Submission
