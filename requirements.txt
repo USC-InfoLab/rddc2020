@@ -1,3 +1,2 @@
-pandas
 -r yolov5/requirements.txt
 gdown
