@@ -1,4 +1,4 @@
-train: datasets/road2020/train.txt
-val: datasets/road2020/val.txt
+train: /home/users/alfarrar/crddc/data/RDD2022_all_countries/train.txt
+val: /home/users/alfarrar/crddc/data/RDD2022_all_countries/val.txt
 nc: 4
 names: ['D00','D10','D20','D40']
