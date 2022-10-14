@@ -6,7 +6,7 @@ Crowdsensing-based Road Damage Detection Challenge 2022
 
 This repository contains source code and trained models for [Crowdsensing-based Road Damage Detection Challenge](https://crddc2022.sekilab.global/) that was held as part of 2022 IEEE Big Data conference.
 
-The best model achieved mean F1-score of 0.
+The best model achieved mean F1-score of 0.649399
 
 ## Table of contents
 
