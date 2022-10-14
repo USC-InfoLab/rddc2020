@@ -14,7 +14,7 @@ The best model achieved mean F1-score of 0.
 - [Quick start](#quick-start)
 - [RDCC Dataset Setup for YOLOv5](#RDCC-Dataset-Setup)
 - [IMSC YOLOv5 Model zoo](#IMSC-YOLOv5-Model-zoo)
-- [Reproduce results](#Reproduce)
+- [Reproduce results for CRDDC2022 Competetion](#reproduce)
 - [Detection](#Detection)
 
 ## Prerequisites
