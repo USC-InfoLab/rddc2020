@@ -16,6 +16,7 @@ The best model achieved mean F1-score of 0.649399
 - [IMSC YOLOv5 Model zoo](#IMSC-YOLOv5-Model-zoo)
 - [Reproduce results for CRDDC2022 Competetion](#Reproduce-results-for-CRDDC2022-Competetion)
 - [Detection](#Detection)
+- [Training](#Training)
 
 ## Prerequisites
 
@@ -134,6 +135,36 @@ bash run.sh
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/Norway_epoch110.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/Norway/test/images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt weights/IMSC/crddc_anchor_epoch80.pt weights/IMSC/China_epoch120.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/China_MotorBike/test/images/ --conf-thres 0.2 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave 
     ```
+
+## Training
+
+#### Training with yolov5 default anchor boxes
+```
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/road.yaml --img 640 --cfg models/yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-All
+
+```
+
+#### Training with learned crddc dataset anchor boxes
+```
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/road.yaml --img 640 --cfg models/crddc_yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-All
+
+```
+
+#### Training country specific models using yolov5 default anchor boxes
+```
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/China_road.yaml --img 640 --cfg models/yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-China
+
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/India_road.yaml --img 640 --cfg models/yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-India
+
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/Japan_road.yaml --img 640 --cfg models/yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-Japan
+
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/United_road.yaml --img 640 --cfg models/yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-United
+
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/Norway_road.yaml --img 640 --cfg models/yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-Norway
+
+CUDA_VISIBLE_DEVICES="0" python train.py --device 0 --batch-size 32 --data data/Czech_road.yaml --img 640 --cfg models/yolov5x.yaml --weights weights/yolov5x.pt --name yolov5-Czech
+
+```
 
 visit [yolov5](https://github.com/ultralytics/yolov5) official source code for more training and inference time arguments
 
