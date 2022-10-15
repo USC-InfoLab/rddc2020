@@ -1,4 +1,4 @@
-train: datasets/rain.txt
+train: datasets/train.txt
 val: datasets/val.txt
 nc: 4
 names: ['D00','D10','D20','D40']

@@ -5,4 +5,4 @@ gdown https://drive.google.com/uc?id=1VLY7k1yvCus7UYyKtBm9ntdYukz3JRU8 -O weight
 gdown https://drive.google.com/uc?id=1S0TzHBvWCfpS5IXRnBBb-UYxtTcGOV48 -O weights/IMSC/India_epoch110.pt
 gdown https://drive.google.com/uc?id=1Jqch5Bb-NpbSUrpQqS2ycfIN2pZSAZ0D -O weights/IMSC/Czech_epoch70.pt
 gdown https://drive.google.com/uc?id=1vP_CTBji8_AZRscNwm-aeZUnuSU-nqSQ -O weights/IMSC/United_epoch90.pt
-gdown https://drive.google.com/uc?id=121PafjeUMSfLF8vDvyiHMy4F64OIiPLu -O weights/IMSC/Norway_epoch100.pt
+gdown https://drive.google.com/uc?id=1su88gaPieQ71eZ2GyCc72VOSsQMyRqZ1 -O weights/IMSC/Norway_epoch110.pt
