@@ -1,0 +1,1 @@
+datasets/CRDD2022/RDD2022_all_countries/Czech/train/images/Czech_001601.jpg

@@ -1,0 +1,4 @@
+train: datasets/train_India.txt
+val: datasets/val_India.txt
+nc: 4
+names: ['D00','D10','D20','D40']
