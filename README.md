@@ -106,7 +106,7 @@ Please complete all previous sections ([Prerequisites](#prerequisites), [Quick s
     ```
 
 2. To generate csv files required to submit results for 5 leaderboards, run following script:
-   (NOTE: This script will generate files `leaderboard_<Country Name>.csv` at the head of this repo (under `rddc2020/`).)
+   (NOTE: This script will generate files `leaderboard_<Country Name>.csv` in yolov5 folder of the repository)
   
 ``` 
 bash run.sh
@@ -119,7 +119,7 @@ bash run.sh
     ```Shell
     cd yolov5
     ```
-3. Execute one of the follwoing commands to generate `results_*.csv`(competition format): (to generate images with drawn predictions, remove ` --nosave` from command)
+3. Execute one of the follwoing commands to generate `results_*.csv`(competition format) in yolov5 folder of the repository: (to generate images with drawn predictions, remove ` --nosave` from command)
     ```Shell
     # inference using model trained with yolov5 default anchor boxes
     python3 detect.py --weights weights/IMSC/yolov5_anchor_epoch90.pt --img 640 --source datasets/CRDD2022/RDD2022_all_countries/all_test_images/ --conf-thres 0.25 --iou-thres 0.999 --agnostic-nms --augment --save-csv --nosave
