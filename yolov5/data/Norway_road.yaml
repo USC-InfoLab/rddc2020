@@ -1,0 +1,4 @@
+train: datasets/train_Norway.txt
+val: datasets/val_Norway.txt
+nc: 4
+names: ['D00','D10','D20','D40']

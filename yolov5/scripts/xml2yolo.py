@@ -56,8 +56,8 @@ def getFileList3(filePath):
 def main():
 
     parser = argparse.ArgumentParser(description='run phase2.')
-    parser.add_argument('--class_file', type=str, help='path of the file containing list of classes of detection problem. sample file at "datasets/road2020/damage_classes.txt"',default='datasets/road2020/damage_classes.txt')
-    parser.add_argument('--input_file', type=str, help='location to the list of images/xml files(absolute path). sample file at "datasets/road2020/train.txt"',default='datasets/road2020/train.txt')
+    parser.add_argument('--class_file', type=str, help='path of the file containing list of classes of detection problem. sample file at "datasets/damage_classes.txt"',default='datasets/damage_classes.txt')
+    parser.add_argument('--input_file', type=str, help='location to the list of images/xml files(absolute path). sample file at "datasets/train.txt"',default='datasets/train.txt')
     args = parser.parse_args()
 
     #assign each class of dataset to a number
@@ -103,7 +103,7 @@ def main():
             
             if surfaceType=="D00" or surfaceType=="D10" or surfaceType=="D20" or surfaceType=="D40":
                 bndbox = objects.find('bndbox')
-                [minX,minY,maxX,maxY] = [int(child.text) for child in bndbox]
+                [minX,minY,maxX,maxY] = [float(child.text) for child in bndbox]
                 [x,y,w,h] = getYoloNumbers(imageFile,minX,minY,maxX, maxY)
                 yoloOutput.write(str(outputCtoId[surfaceType])+" "+str(x)+" "+str(y)+" "+str(w)+" "+str(h)+"\n")
                 imageListDict[outputCtoId[surfaceType]].add(imageFile)
